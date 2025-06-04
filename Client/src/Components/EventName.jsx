@@ -14,7 +14,7 @@ const EventName = () => {
     'Emily Davis',
   ]
   return (
-    <div className="min-h-screen sm:w-[1050px] bg-black/30 px-6 py-3 text-white font-sans rounded-xl border border-pink-500 shadow-xl overflow-auto">
+    <div className="min-h-screen sm:w-[1050px] bg-black/30 sm:px-6 py-3 px-3 text-white font-sans rounded-xl border border-pink-500 shadow-xl overflow-auto">
       {/* Header */}
       <div className="flex justify-start items-center mb-6">
         <Link
@@ -23,29 +23,32 @@ const EventName = () => {
         >
           &#x2190;
         </Link>
-        <h1 className="text-3xl font-bold">
+        <h1 className="sm:text-3xl text-2xl font-semibold  sm:font-bold">
           Event Name
           <span className="text-base font-normal ps-1">(Venue Details)</span>
         </h1>
       </div>
 
       {/* Tabs */}
-      <div className="flex space-x-4 mb-2">
-        {[
-          'Event Details',
-          'Assign Coordinator/Coordinator',
-          'Session Management',
-          'Generate SOW',
-        ].map((tab, idx) => (
-          <button
-            key={idx}
-            className="bg-transparent border border-pink-400 sm:text-sm text-xs text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 rounded-md font-thin hover:shadow-[0_0_15px_1px_rgba(236,72,153,0.8)]"
-          >
-            {tab}
-          </button>
-        ))}
+      <div className="overflow-x-auto">
+        <div className="flex mb-2">
+          {[
+            'Event Details',
+            'Assign Coordinator/Coordinator',
+            'Session Management',
+            'Generate SOW',
+          ].map((tab, idx, arr) => (
+            <button
+              key={idx}
+              className={`bg-transparent border border-pink-400 sm:text-sm text-xs text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 font-thin hover:shadow-[0_0_15px_1px_rgba(236,72,153,0.8)]
+        ${idx === 0 ? 'rounded-l-md' : ''}
+        ${idx === arr.length - 1 ? 'rounded-r-md' : ''}`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
       </div>
-
       {/* Assign Coordinator and Event Info */}
       <div className="flex sm:flex-row flex-col justify-between mb-2 gap-6">
         <div className="sm:w-1/2 relative">
@@ -131,7 +134,7 @@ const EventName = () => {
         </div>
 
         {/* Positions */}
-        <div className="sm:w-2/3">
+        <div className="sm:w-2/3 overflow-x-auto">
           <label className="block mb-2 font-normal text-lg text-white ">
             Positions
           </label>
