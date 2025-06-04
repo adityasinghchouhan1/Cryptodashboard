@@ -39,7 +39,7 @@ const EventName = () => {
         ].map((tab, idx) => (
           <button
             key={idx}
-            className="bg-transparent border border-pink-400 sm:text-sm text-xs text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 rounded-md font-thin shadow-md"
+            className="bg-transparent border border-pink-400 sm:text-sm text-xs text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 rounded-md font-thin hover:shadow-[0_0_15px_1px_rgba(236,72,153,0.8)]"
           >
             {tab}
           </button>
@@ -110,15 +110,15 @@ const EventName = () => {
           <label className="block mb-2 font-semibold text-lg">
             Assign Contractor
           </label>
-          <div className="space-y-3 bg-black px-5 py-4 rounded-lg border border-pink-400">
+          <div className="space-y-3 bg-black px-5 py-4 rounded-lg border border-pink-400 ">
             {[1, 2, 3, 4, 5].map((room) => (
               <div
                 key={room}
-                className="rounded-xl p-3 border border-pink-400 bg-black shadow-pink-400 shadow"
+                className="rounded-xl p-3 border border-pink-400 bg-black shadow-pink-400 group hover:bg-pink-400 hover:shadow-[0_0_15px_3px_rgba(236,72,153,0.8)] transition-all"
               >
                 <h2 className="font-bold text-md flex justify-between items-center text-base">
                   Meeting Room {room}
-                  <span className="text-xs font-normal text-pink-400 ">
+                  <span className="text-xs font-normal text-pink-400 group-hover:text-black">
                     ➕ 12 Positions
                   </span>
                 </h2>

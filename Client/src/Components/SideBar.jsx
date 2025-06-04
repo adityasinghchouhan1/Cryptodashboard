@@ -51,7 +51,7 @@ const Sidebar = () => {
             <div className="flex flex-col justify-center items-start text-sm">
               <p className="flex font-normal">
                 Hi,
-                <span className="text-blue-500 font-normal text-sm inline ps-1">
+                <span className="text-cyan-400 font-normal text-sm inline ps-1">
                   user name
                 </span>
               </p>
@@ -105,7 +105,7 @@ const Sidebar = () => {
                       to={`/dashboard/${item
                         .toLowerCase()
                         .replace(/\s+/g, '-')}`}
-                      className="block hover:border p-1 rounded-lg hover:border-pink-500 hover:text-pink-400 transition-all duration-300"
+                      className="block hover:border p-1 rounded-md hover:border-pink-500 hover:text-pink-400 transition-all duration-300  hover:animate-pulse hover:drop-shadow-[0_0_3px_rgba(236,72,153,0.9)] font-normal"
                       onClick={() => setSidebarOpen(false)}
                     >
                       {item}
@@ -118,14 +118,14 @@ const Sidebar = () => {
             {/* Other Links */}
             <Link
               to="/dashboard/positions"
-              className="block font-bold text-base"
+              className="block font-bold text-base hover:text-pink-400 transition-all duration-300  hover:border p-1 rounded-md hover:border-pink-500 "
               onClick={() => setSidebarOpen(false)}
             >
               Positions
             </Link>
             <Link
               to="/dashboard/contractors"
-              className="block font-bold text-base"
+              className="block font-bold text-base  hover:text-pink-400 transition-all duration-300  hover:border p-1 rounded-md hover:border-pink-500 "
               onClick={() => setSidebarOpen(false)}
             >
               Contractors
@@ -164,7 +164,7 @@ const Sidebar = () => {
 
             <Link
               to="/dashboard/profile"
-              className="block font-bold text-base"
+              className="block font-bold text-base  hover:text-pink-400 transition-all duration-300  hover:border p-1 rounded-md hover:border-pink-500 "
               onClick={() => setSidebarOpen(false)}
             >
               Profile
