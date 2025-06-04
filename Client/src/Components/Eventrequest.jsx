@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaSearch, FaEye, FaPlus } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const EventRequests = () => {
   const rows = [...Array(8)].map((_, i) => ({
@@ -64,7 +65,9 @@ const EventRequests = () => {
                 <tr key={idx} className="hover:bg-pink-950 transition">
                   <td className="sticky left-0 bg-black/45 z-10 px-4 py-3 w-[150px]">
                     <div className="flex items-center gap-2">
-                      <FaEye className="text-pink-400" />
+                      <Link to="EventName">
+                        <FaEye className="text-pink-400" />
+                      </Link>
                       <span>{row.name}</span>
                     </div>
                   </td>
