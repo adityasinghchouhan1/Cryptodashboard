@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+
 const EventName = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [selected, setSelected] = useState('')
@@ -12,12 +14,18 @@ const EventName = () => {
     'Emily Davis',
   ]
   return (
-    <div className="min-h-screen bg-black/30 p-6 text-white font-sans rounded-xl border border-pink-500 shadow-xl">
+    <div className="min-h-screen sm:w-[1050px] bg-black/30 px-6 py-3 text-white font-sans rounded-xl border border-pink-500 shadow-xl overflow-auto">
       {/* Header */}
       <div className="flex justify-start items-center mb-6">
+        <Link
+          to="/dashboard/new-requests"
+          className=" text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg text-3xl px-1.5 bg-gray-800 text-center pb-1.5 mt-1.5 me-2"
+        >
+          &#x2190;
+        </Link>
         <h1 className="text-3xl font-bold">
-          Event Name{' '}
-          <span className="text-sm font-normal">(Venue Details)</span>
+          Event Name
+          <span className="text-base font-normal ps-1">(Venue Details)</span>
         </h1>
       </div>
 
@@ -31,7 +39,7 @@ const EventName = () => {
         ].map((tab, idx) => (
           <button
             key={idx}
-            className="bg-transparent border border-pink-400 text-sm text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 rounded-md font-thin shadow-md"
+            className="bg-transparent border border-pink-400 sm:text-sm text-xs text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 rounded-md font-thin shadow-md"
           >
             {tab}
           </button>
@@ -39,8 +47,8 @@ const EventName = () => {
       </div>
 
       {/* Assign Coordinator and Event Info */}
-      <div className="flex justify-between mb-6 gap-6">
-        <div className="w-1/2 relative">
+      <div className="flex sm:flex-row flex-col justify-between mb-2 gap-6">
+        <div className="sm:w-1/2 relative">
           <label className="block mb-1 font-semibold text-base">
             Assign Coordinator
           </label>
@@ -75,60 +83,46 @@ const EventName = () => {
             </div>
           </div>
 
-          <button className="text-xs font-thin text-pink-500 underline mt-2">
+          <button className="text-xs font-normal text-pink-500 underline mt-2">
             Add New Coordinator
           </button>
         </div>
 
-        <div className="w-1/2">
-          <label className="block mb-1 font-semibold text-lg">
+        <div className="sm:w-1/2 w-full">
+          <label className="block mb-1 font-semibold text-base">
             Event Name (Venue Here)
           </label>
-          <div className="flex space-x-2 mb-2">
-            <input
-              type="date"
-              className="px-3 py-2 w-1/2 text-black rounded-md outline-none"
-              value="2023-12-12"
-              readOnly
-            />
-            <input
-              type="date"
-              className="px-3 py-2 w-1/2 text-black rounded-md outline-none"
-              value="2023-12-15"
-              readOnly
-            />
+          <div className="border border-pink-400 p-1 rounded text-white font-normal text-sm flex justify-start gap-20 items-start mb-2">
+            <span>Start 12-12-2023</span>
+            <span>End 15-12-2023</span>
           </div>
-          <input
-            type="text"
-            className="w-full px-3 py-2 text-black rounded-md outline-none"
-            value="Some Location 12, Name Here, City, State."
-            readOnly
-          />
+
+          <div className="border border-pink-400 p-1 rounded text-white font-normal text-sm flex justify-between items-start">
+            Some Location 12, Name Here, City, State.
+          </div>
         </div>
       </div>
 
       {/* Assign Contractor Section */}
-      <div className="flex gap-6">
+      <div className="flex sm:flex-row flex-col gap-6">
         {/* Rooms */}
-        <div className="w-1/3">
+        <div className="sm:w-1/3">
           <label className="block mb-2 font-semibold text-lg">
             Assign Contractor
           </label>
-          <div className="space-y-3">
+          <div className="space-y-3 bg-black px-5 py-4 rounded-lg border border-pink-400">
             {[1, 2, 3, 4, 5].map((room) => (
               <div
                 key={room}
-                className={`rounded-xl p-4 border-2 ${
-                  room === 1
-                    ? 'bg-pink-600 border-white'
-                    : 'bg-gray-900 border-gray-700'
-                } text-white shadow-md`}
+                className="rounded-xl p-3 border border-pink-400 bg-black shadow-pink-400 shadow"
               >
-                <h2 className="font-bold text-md flex justify-between items-center">
-                  Meeting Room {room}{' '}
-                  <span className="text-sm font-semibold">➕ 12 Positions</span>
+                <h2 className="font-bold text-md flex justify-between items-center text-base">
+                  Meeting Room {room}
+                  <span className="text-xs font-normal text-pink-400 ">
+                    ➕ 12 Positions
+                  </span>
                 </h2>
-                <p className="text-sm mt-1">
+                <p className="text-xs mt-1 font-normal">
                   Start from 12th Jan, 2023 - Ends 15th Jan, 2023
                 </p>
               </div>
@@ -137,41 +131,78 @@ const EventName = () => {
         </div>
 
         {/* Positions */}
-        <div className="w-2/3">
-          <label className="block mb-2 font-semibold text-lg">Positions</label>
-          <div className="overflow-auto max-h-[420px] space-y-3 pr-1">
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={i}
-                className="grid grid-cols-5 gap-2 items-center bg-gradient-to-r from-gray-900 to-gray-800 p-3 rounded-lg border border-pink-500"
-              >
-                <div>Camera 1 (Video)</div>
-                <div>9 am - 7 pm</div>
-                <div>LP default</div>
-                <div>20</div>
-                <select className="text-black rounded-md px-2 py-1">
-                  <option>Select Contractor</option>
-                </select>
-              </div>
-            ))}
-          </div>
+        <div className="sm:w-2/3">
+          <label className="block mb-2 font-normal text-lg text-white ">
+            Positions
+          </label>
 
-          {/* Pagination */}
-          <div className="flex justify-center items-center mt-4 space-x-3">
-            <button className="bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
-              ❮
-            </button>
-            <span className="text-white">1</span>
-            <button className="bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
-              ❯
-            </button>
+          <div className="pr-1 rounded-5">
+            <table className="w-full text-left border-collapse border border-pink-400 font-normal ">
+              <thead>
+                <tr className="text-white text-sm bg-black rounded-5 font-normal">
+                  <th className="p-3 font-normal">Position</th>
+                  <th className="p-3 font-normal">Time</th>
+                  <th className="p-3 font-normal">Info</th>
+                  <th className="p-3 font-normal">Quantity</th>
+                  <th className="p-3 font-normal">Contractor</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {[...Array(8)].map((_, i) => (
+                  <tr
+                    key={i}
+                    className="bg-gradient-to-r from-black via-gray-900 to-black text-white border-b border-pink-500 text-xs"
+                  >
+                    <td className="p-3">Camera 1 (Video)</td>
+                    <td className="p-3">9 am - 7 pm</td>
+                    <td className="p-3 font-semibold">LP default</td>
+                    <td className="p-3">20</td>
+                    <td className="p-3 relative">
+                      <div className="relative">
+                        <select className="w-full appearance-none bg-transparent border border-pink-500 text-white px-3 py-1 rounded-md pr-8">
+                          <option className="text-black text-xs">
+                            Select Contractor
+                          </option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                          <FaChevronDown className="text-white text-sm" />
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+
+              {/* Pagination row inside table */}
+              <tfoot>
+                <tr>
+                  <td colSpan="5">
+                    <div className="flex justify-center items-center py-1 bg-black space-x-3">
+                      {/* Left Arrow with Tail */}
+                      <button className=" text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg text-2xl">
+                        &#x2190;
+                      </button>
+
+                      {/* Active Page Dot */}
+                      <button className="w-2 h-2 rounded-full  shadow-inner ring-2 ring-pink-100" />
+
+                      {/* Right Arrow with Tail */}
+                      <button className="text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg text-2xl">
+                        &#x2192;
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
           </div>
         </div>
       </div>
 
       {/* Save Edits */}
       <div className="mt-8 text-center">
-        <button className="bg-gradient-to-r from-fuchsia-800 to-pink-600 px-10 py-2 rounded-md text-white font-semibold text-lg shadow-lg">
+        <button className="bg-gradient-to-t from-pink-400 to-pink-400 text-white font-normal text-lg px-10 py-2 rounded-md  transition duration-300 hover:shadow-pink-500 shadow-[0_0_15px_3px_rgba(236,72,153,0.8)] ">
           Save Edits
         </button>
       </div>
