@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaSearch, FaEye, FaPlus } from 'react-icons/fa'
+import { FaSearch, FaRegEye, FaPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const EventRequests = () => {
@@ -50,35 +50,51 @@ const EventRequests = () => {
                 <th className="sticky left-0 z-20 bg-pink-400 px-4 py-3 w-[150px]">
                   Event Name
                 </th>
-                <th className="px-4 py-3 w-[130px]">Event Start</th>
-                <th className="px-4 py-3 w-[130px]">Event End</th>
-                <th className="px-4 py-3 w-[150px]">Client Name</th>
-                <th className="px-4 py-3 w-[150px]">Contact Info</th>
-                <th className="px-4 py-3 w-[240px]">Venue</th>
-                <th className="px-4 py-3 w-[120px]">City</th>
-                <th className="px-4 py-3 w-[120px]">State</th>
-                <th className="px-4 py-3 w-[120px]">Zipcode</th>
+                <th className="px-4 py-3 w-[130px] font-normal">Event Start</th>
+                <th className="px-4 py-3 w-[130px] font-normal">Event End</th>
+                <th className="px-4 py-3 w-[150px] font-normal">Client Name</th>
+                <th className="px-4 py-3 w-[150px] font-normal">
+                  Contact Info
+                </th>
+                <th className="px-4 py-3 w-[240px] font-normal">Venue</th>
+                <th className="px-4 py-3 w-[120px] font-normal">City</th>
+                <th className="px-4 py-3 w-[120px] font-normal">State</th>
+                <th className="px-4 py-3 w-[120px] font-normal">Zipcode</th>
               </tr>
             </thead>
             <tbody className="bg-black/40 divide-y divide-pink-500">
               {rows.map((row, idx) => (
                 <tr key={idx} className="hover:bg-pink-950 transition">
-                  <td className="sticky left-0 bg-black/45 z-10 px-4 py-3 w-[150px]">
+                  <td className="sticky left-0 bg-black/45 z-10 px-4 py-3 w-[150px] font-normal">
                     <div className="flex items-center gap-2">
                       <Link to="EventName">
-                        <FaEye className="text-pink-400" />
+                        <FaRegEye className="text-white" />
                       </Link>
                       <span>{row.name}</span>
                     </div>
                   </td>
-                  <td className="px-4 py-3 w-[130px]">{row.start}</td>
-                  <td className="px-4 py-3 w-[130px]">{row.end}</td>
-                  <td className="px-4 py-3 w-[150px]">{row.client}</td>
-                  <td className="px-4 py-3 w-[150px]">{row.contact}</td>
-                  <td className="px-4 py-3 w-[240px]">{row.venue}</td>
-                  <td className="px-4 py-3 w-[120px]">{row.city}</td>
-                  <td className="px-4 py-3 w-[120px]">{row.state}</td>
-                  <td className="px-4 py-3 w-[120px]">{row.zipcode}</td>
+                  <td className="px-4 py-3 w-[130px] font-normal">
+                    {row.start}
+                  </td>
+                  <td className="px-4 py-3 w-[130px] font-normal">{row.end}</td>
+                  <td className="px-4 py-3 w-[150px] font-normal">
+                    {row.client}
+                  </td>
+                  <td className="px-4 py-3 w-[150px] font-normal">
+                    {row.contact}
+                  </td>
+                  <td className="px-4 py-3 w-[240px] font-normal">
+                    {row.venue}
+                  </td>
+                  <td className="px-4 py-3 w-[120px] font-normal">
+                    {row.city}
+                  </td>
+                  <td className="px-4 py-3 w-[120px] font-normal">
+                    {row.state}
+                  </td>
+                  <td className="px-4 py-3 w-[120px] font-normal">
+                    {row.zipcode}
+                  </td>
                 </tr>
               ))}
             </tbody>
