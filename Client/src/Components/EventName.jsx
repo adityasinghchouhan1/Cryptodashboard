@@ -22,7 +22,7 @@ const EventName = () => {
         ].map((tab, idx) => (
           <button
             key={idx}
-            className="bg-gradient-to-br from-fuchsia-800 text-base to-pink-600 text-white px-4 py-2 rounded-md font-medium shadow-md"
+            className="bg-transparent border border-pink-400 text-sm text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 rounded-md font-thin shadow-md"
           >
             {tab}
           </button>
