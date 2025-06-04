@@ -1,7 +1,16 @@
-import React from 'react'
-import { FaSearch } from 'react-icons/fa'
-
+import React, { useState } from 'react'
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 const EventName = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [selected, setSelected] = useState('')
+
+  const coordinators = [
+    'Select Coordinator',
+    'John Doe',
+    'Jane Smith',
+    'Alex Johnson',
+    'Emily Davis',
+  ]
   return (
     <div className="min-h-screen bg-black/30 p-6 text-white font-sans rounded-xl border border-pink-500 shadow-xl">
       {/* Header */}
@@ -13,7 +22,7 @@ const EventName = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex space-x-4 mb-6">
+      <div className="flex space-x-4 mb-2">
         {[
           'Event Details',
           'Assign Coordinator/Coordinator',
@@ -31,19 +40,42 @@ const EventName = () => {
 
       {/* Assign Coordinator and Event Info */}
       <div className="flex justify-between mb-6 gap-6">
-        <div className="w-1/2">
-          <label className="block mb-1 font-semibold text-lg">
+        <div className="w-1/2 relative">
+          <label className="block mb-1 font-semibold text-base">
             Assign Coordinator
           </label>
-          <div className="flex items-center bg-white rounded-md overflow-hidden mb-2">
-            <input
-              type="text"
-              placeholder="Search Coordinator"
-              className="px-3 py-2 w-full text-black outline-none"
-            />
-            <FaSearch className="text-black mx-3" />
+          <div
+            className="flex items-center rounded-md border border-white text-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <select
+              className="w-full bg-transparent px-3 py-1 text-base text-white outline-none appearance-none"
+              value={selected}
+              onChange={(e) => setSelected(e.target.value)}
+              onBlur={() => setIsOpen(false)}
+            >
+              {coordinators.map((name, idx) => (
+                <option
+                  key={idx}
+                  value={name}
+                  className="text-black bg-white text-base"
+                  disabled={idx === 0}
+                  hidden={idx === 0}
+                >
+                  {name}
+                </option>
+              ))}
+            </select>
+            <div className="px-3">
+              {isOpen ? (
+                <FaChevronUp className="text-white" size={20} />
+              ) : (
+                <FaChevronDown className="text-white" size={20} />
+              )}
+            </div>
           </div>
-          <button className="text-sm text-pink-500 underline">
+
+          <button className="text-xs font-thin text-pink-500 underline mt-2">
             Add New Coordinator
           </button>
         </div>
