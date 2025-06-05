@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const EventName = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -38,7 +38,7 @@ const EventName = () => {
             'Session Management',
             'Generate SOW',
           ].map((tab, idx, arr) => (
-            <Link
+            <NavLink
               to="/dashboard/new-requests"
               key={idx}
               className={`bg-transparent border border-pink-400 sm:text-sm text-xs text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 font-thin hover:shadow-[0_0_15px_1px_rgba(236,72,153,0.8)]
@@ -46,7 +46,7 @@ const EventName = () => {
         ${idx === arr.length - 1 ? 'rounded-r-md' : ''}`}
             >
               {tab}
-            </Link>
+            </NavLink>
           ))}
         </div>
       </div>

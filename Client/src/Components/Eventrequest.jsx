@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaSearch, FaRegEye, FaPlus } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const EventRequests = () => {
   const rows = [...Array(8)].map((_, i) => ({
@@ -67,9 +67,9 @@ const EventRequests = () => {
                 <tr key={idx} className="hover:bg-pink-950 transition">
                   <td className="sticky left-0 bg-black/45 z-10 px-4 py-3 w-[150px] font-normal">
                     <div className="flex items-center gap-2">
-                      <Link to="dashboard/new-requests/EventName">
+                      <NavLink to="/dashboard/new-requests/EventName">
                         <FaRegEye className="text-white" />
-                      </Link>
+                      </NavLink>
                       <span>{row.name}</span>
                     </div>
                   </td>

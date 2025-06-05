@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import {
   FaChevronDown,
   FaChevronUp,
@@ -99,7 +99,7 @@ const Sidebar = () => {
                     'Events',
                     'Partial Requests',
                   ].map((item) => (
-                    <Link
+                    <NavLink
                       key={item}
                       to={`/dashboard/${item
                         .toLowerCase()
@@ -108,7 +108,7 @@ const Sidebar = () => {
                       onClick={() => setSidebarOpen(false)}
                     >
                       {item}
-                    </Link>
+                    </NavLink>
                   ))}
                 </div>
               )}
