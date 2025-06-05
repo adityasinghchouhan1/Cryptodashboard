@@ -34,7 +34,7 @@ module.exports = {
         },
       },
       animation: {
-        'radial-move': 'radial-move 10s ease-in-out infinite',
+        'radial-move': 'radial-move 20s ease-in-out infinite',
       },
     },
   },
