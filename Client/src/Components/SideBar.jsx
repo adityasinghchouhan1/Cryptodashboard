@@ -8,10 +8,9 @@ import {
   FaUserCircle,
 } from 'react-icons/fa'
 import { Bell } from 'lucide-react'
-
 import { FaBitcoin } from 'react-icons/fa'
 import { FaInfo } from 'react-icons/fa'
-import user from '../../public/user.jpg'
+import user from '../assets/user.jpg'
 
 const Sidebar = () => {
   const [expandedMenu, setExpandedMenu] = useState('Events')
