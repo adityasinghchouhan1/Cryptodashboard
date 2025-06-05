@@ -67,7 +67,7 @@ const EventRequests = () => {
                 <tr key={idx} className="hover:bg-pink-950 transition">
                   <td className="sticky left-0 bg-black/45 z-10 px-4 py-3 w-[150px] font-normal">
                     <div className="flex items-center gap-2">
-                      <Link to="EventName">
+                      <Link to="dashboard/new-requests/EventName">
                         <FaRegEye className="text-white" />
                       </Link>
                       <span>{row.name}</span>
