@@ -5,9 +5,13 @@ import EventName from '../Components/EventName'
 
 const Router = createBrowserRouter([
   {
-    path: 'dashboard/new-requests',
+    path: '',
     element: <App />,
     children: [
+      {
+        path: '',
+        element: <EventRequests />,
+      },
       {
         path: 'dashboard/new-requests',
         element: <EventRequests />,
