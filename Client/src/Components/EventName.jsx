@@ -41,7 +41,7 @@ const EventName = () => {
             <NavLink
               to="/dashboard/new-requests"
               key={idx}
-              className={`bg-transparent border border-pink-400 sm:text-sm text-xs text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 font-thin hover:shadow-[0_0_15px_1px_rgba(236,72,153,0.8)]
+              className={`bg-transparent border border-pink-400 sm:text-sm text-xs text-pink-400 hover:text-white hover:bg-pink-400 transition-all px-4 py-2 font-normal hover:shadow-[0_0_15px_1px_rgba(236,72,153,0.8)]
         ${idx === 0 ? 'rounded-l-md' : ''}
         ${idx === arr.length - 1 ? 'rounded-r-md' : ''}`}
             >

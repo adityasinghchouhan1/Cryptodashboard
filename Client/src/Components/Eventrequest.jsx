@@ -43,7 +43,7 @@ const EventRequests = () => {
 
       {/* Table container */}
       <div className="w-[1000px] overflow-x-auto">
-        <div className="min-w-[1100px]">
+        <div className="min-w-[1100px] overflow-hidden rounded-lg border border-pink-500">
           <table className="w-full text-sm text-left text-white border-separate border-spacing-0">
             <thead className="bg-pink-400 text-white uppercase text-xs">
               <tr>
@@ -109,7 +109,6 @@ const EventRequests = () => {
           <button className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white hover:text-black transition">
             &#8592;
           </button>
-
           {/* Page Numbers */}
           {[1, 2, 3, 4].map((num) => (
             <button
@@ -123,7 +122,6 @@ const EventRequests = () => {
               {num}
             </button>
           ))}
-
           {/* Next Arrow */}
           <button className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white hover:text-black transition">
             &#8594;
